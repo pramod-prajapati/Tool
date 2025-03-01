@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Compress images, convert JPG to PDF, enhance images, and optimize PDFs with our free online tool.">
+  <meta name="keywords" content="image compression, PDF converter, JPG to PDF, image enhancement, optimize PDF">
+  <meta name="author" content="Pramod Prajapati">
+  <title>Image & PDF Tools - Compress, Convert, Enhance</title>
+  <style>
+    /* Global Styles */
+    :root {
+      --primary-color: #007BFF;
+      --secondary-color: #0056b3;
+      --background-color: #f4f4f9;
+      --text-color: #333;
+      --border-radius: 8px;
+      --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: var(--background-color);
+      color: var(--text-color);
+      line-height: 1.6;
+    }
+
+    header {
+      background: var(--primary-color);
+      color: #fff;
+      padding: 40px 20px;
+      text-align: center;
+      box-shadow: var(--box-shadow);
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+    }
+
+    header p {
+      margin: 10px 0 0;
+      font-size: 1.2rem;
+    }
+
+    main {
+      padding: 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    section {
+      background: #fff;
+      padding: 20px;
+      margin-bottom: 20px;
+      border-radius: var(--border-radius);
+      box-shadow: var(--box-shadow);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    section:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    h2 {
+      margin-top: 0;
+      font-size: 1.8rem;
+      color: var(--primary-color);
+    }
+
+    input, select, button {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border: 1px solid #ddd;
+      border-radius: var(--border-radius);
+      font-size: 1rem;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    input:focus, select:focus, button:focus {
+      border-color: var(--primary-color);
+      outline: none;
+      box-shadow: 0 0 8px rgba(0, 123, 255, 0.3);
+    }
+
+    button {
+      background: var(--primary-color);
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    button:hover {
+      background: var(--secondary-color);
+    }
+
+    #compressedOutput, #pdfOutput, #jpgPdfOutput, #enhancedOutput {
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    #compressedOutput a, #pdfOutput a, #jpgPdfOutput a, #enhancedOutput a {
+      color: var(--primary-color);
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    #compressedOutput a:hover, #pdfOutput a:hover, #jpgPdfOutput a:hover, #enhancedOutput a:hover {
+      text-decoration: underline;
+    }
+
+    #ad-space {
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    footer {
+      background: var(--primary-color);
+      color: #fff;
+      text-align: center;
+      padding: 15px;
+      margin-top: 40px;
+      box-shadow: var(--box-shadow);
+    }
+
+    footer p {
+      margin: 0;
+    }
+
+    /* Responsive Design */
+    @media (min-width: 768px) {
+      main {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+      }
+
+      section {
+        margin-bottom: 0;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      main {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+  </style>
+  <!-- Google AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=YOUR_ADSENSE_ID" crossorigin="anonymous"></script>
+</head>
+<body>
+  <header>
+    <h1>Image & PDF Tools</h1>
+    <p>Compress, Convert, and Enhance Your Files</p>
+  </header>
+
+  <main>
+    <!-- Image Compression Tool -->
+    <section id="compression">
+      <h2>Image Compression</h2>
+      <input type="file" id="compressInput" accept="image/*">
+      <label for="compressionLevel">Compression Level:</label>
+      <select id="compressionLevel">
+        <option value="0.1">Low</option>
+        <option value="0.5">Medium</option>
+        <option value="0.9">High</option>
+      </select>
+      <button id="compressBtn">Compress Image</button>
+      <div id="compressedOutput"></div>
+    </section>
+
+    <!-- PDF Converter Tool -->
+    <section id="pdf-converter">
+      <h2>PDF Converter</h2>
+      <input type="file" id="pdfInput" accept="application/pdf">
+      <button id="convertPdfBtn">Convert PDF</button>
+      <div id="pdfOutput"></div>
+    </section>
+
+    <!-- JPG to PDF Converter Tool -->
+    <section id="jpg-to-pdf">
+      <h2>JPG to PDF Converter</h2>
+      <input type="file" id="jpgInput" accept="image/jpeg">
+      <button id="convertJpgBtn">Convert to PDF</button>
+      <div id="jpgPdfOutput"></div>
+    </section>
+
+    <!-- Image Enhancement Tool -->
+    <section id="enhancement">
+      <h2>Image Enhancement</h2>
+      <input type="file" id="enhanceInput" accept="image/*">
+      <button id="enhanceBtn">Enhance Image</button>
+      <div id="enhancedOutput"></div>
+    </section>
+
+    <!-- Ad Space -->
+    <section id="ad-space">
+      <h2>Advertisement</h2>
+      <div class="ad-unit">
+        <!-- Google AdSense Ad Unit -->
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="YOUR_ADSENSE_ID"
+             data-ad-slot="YOUR_AD_UNIT_ID"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2023 Image & PDF Tools. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // JavaScript for Dynamic Functionality
+    document.getElementById('compressBtn').addEventListener('click', function () {
+      const file = document.getElementById('compressInput').files[0];
+      const compressionLevel = parseFloat(document.getElementById('compressionLevel').value);
+
+      if (file) {
+        compressImage(file, compressionLevel);
+      }
+    });
+
+    document.getElementById('convertPdfBtn').addEventListener('click', function () {
+      const file = document.getElementById('pdfInput').files[0];
+      if (file) {
+        convertPdf(file);
+      }
+    });
+
+    document.getElementById('convertJpgBtn').addEventListener('click', function () {
+      const file = document.getElementById('jpgInput').files[0];
+      if (file) {
+        convertJpgToPdf(file);
+      }
+    });
+
+    document.getElementById('enhanceBtn').addEventListener('click', function () {
+      const file = document.getElementById('enhanceInput').files[0];
+      if (file) {
+        enhanceImage(file);
+      }
+    });
+
+    function compressImage(file, quality) {
+      // Use a library like compressorjs for image compression
+      // Placeholder for compression logic
+      const output = document.getElementById('compressedOutput');
+      output.innerHTML = `<a href="${URL.createObjectURL(file)}" download="compressed-image.jpg">Download Compressed Image</a>`;
+    }
+
+    function convertPdf(file) {
+      // Use a library like pdf-lib for PDF conversion
+      // Placeholder for PDF conversion logic
+      alert('PDF conversion logic will be implemented here.');
+    }
+
+    function convertJpgToPdf(file) {
+      // Use a library like jspdf for JPG to PDF conversion
+      // Placeholder for JPG to PDF conversion logic
+      alert('JPG to PDF conversion logic will be implemented here.');
+    }
+
+    function enhanceImage(file) {
+      // Use a library like CamanJS for image enhancement
+      // Placeholder for image enhancement logic
+      alert('Image enhancement logic will be implemented here.');
+    }
+  </script>
+</body>
+</html>
